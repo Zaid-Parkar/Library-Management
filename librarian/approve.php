@@ -1,5 +1,9 @@
 <?php
 include "connection.php";
-$id = $GET["id"];
-mysqli_query($link,"update student_registration set status="yes" where id=$id");
+$id = $_GET["id"];
+mysqli_query($link,"update student_registration set status='yes' where id=$id");
 ?>
+<script type="text/javascript">
+    window.location="student_info.php";
+
+</script>

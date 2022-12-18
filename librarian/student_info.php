@@ -58,8 +58,8 @@ include"connection.php";
                                 echo "<td>"; echo $row["contact"];echo "</td>";
                                 echo "<td>"; echo $row["enrollment"];echo "</td>";
                                 echo "<td>"; echo $row["status"];echo "</td>";
-                                echo "<td>";?><a href="approve.php?id=<?php echo $row["id"]; ?>">                  Approve</a> <?php echo"</td>";
-                                echo "<td>";?><a href="approve.php?id=<?php echo $row["id"]; ?>">                  Not Approve</a> <?php echo"</td>";
+                                echo "<td>";?><a href="approve.php?id=<?php echo $row["id"]; ?>" >              Approve</a> <?php echo"</td>";
+                                echo "<td>";?><a href="notapprove.php?id=<?php echo $row["id"]; ?>">                 Not Approve</a> <?php echo"</td>";
                                 echo "</tr>";
                                }
                                ?></table>
