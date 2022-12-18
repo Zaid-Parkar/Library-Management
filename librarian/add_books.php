@@ -82,8 +82,8 @@ include "header.php";
 if (isset($_POST["submit1"])) {
     $tm = md5(time());
     $fnm = $_FILES["f1"]["name"];
-    $dst = "./books_image/" . $tm . $fnm;
-    $dst1 = "./books_image/" . $tm . $fnm;
+    $dst = "books_image/" . $tm . $fnm;
+    $dst1 = "books_image/" . $tm . $fnm;
     move_uploaded_file($_FILES["f1"]["tmp_name"], $dst);
 
     mysqli_query($link, "INSERT INTO `add_books` ( `books_name`, `books_image`, `books_author_name`, `books_publication_name`, `books_purchase_date`, `books_price`, `books_qty`, `available_qty`, `librarian_username`) VALUES ( '$_POST[books_name]', '$dst1]', '$_POST[books_author_name]', '$_POST[books_publication_name]', '$_POST[books_purchase_date]', '$_POST[books_price]', '$_POST[books_qty]', '$_POST[available_qty]', ' $_SESSION[librarian]')");
