@@ -46,7 +46,7 @@ include"connection.php";
                                 echo "<th>"; echo "Enrollment number";echo "</th>";
                                 echo "<th>"; echo "status";echo "</th>";
                                 echo "<th>"; echo "approve";echo "</th>";
-                                echo "<th>"; echo "status";echo "</th>";
+                                echo "<th>"; echo "not approve";echo "</th>";
                                 echo "</tr>";
                                while($row=mysqli_fetch_array($res))
                                {
@@ -58,6 +58,8 @@ include"connection.php";
                                 echo "<td>"; echo $row["contact"];echo "</td>";
                                 echo "<td>"; echo $row["enrollment"];echo "</td>";
                                 echo "<td>"; echo $row["status"];echo "</td>";
+                                echo "<td>";?><a href="approve.php?id=<?php echo $row["id"]; ?>">                  Approve</a> <?php echo"</td>";
+                                echo "<td>";?><a href="approve.php?id=<?php echo $row["id"]; ?>">                  Not Approve</a> <?php echo"</td>";
                                 echo "</tr>";
                                }
                                ?></table>
