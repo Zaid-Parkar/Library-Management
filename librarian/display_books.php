@@ -28,11 +28,18 @@ include "connection.php";
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Display books</h2>
+                                <h2>Display & Search books</h2>
 
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
+
+<form action="" method="POST" name="form1">
+<input type="text" name="t1" class="form-control">
+<input type="submit" name="submit1" value="search books" class="btn btn-primary " style="margin-top: 3px;">
+</form>
+
+
                                 <?php
                                 $res = mysqli_query($link, "SELECT * FROM `add_books`");
                                 echo "<table class='table table-bordered'>";
