@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 include"connection.php";
 ?>
 
@@ -81,7 +82,7 @@ if(isset($_POST["submit1"])){
 ?>
 <script type="text/javascript">
 
-    window.location="aa.php";
+    window.location="my_issued_books.php";
 </script>
 <?php
         }
