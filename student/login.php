@@ -79,6 +79,7 @@ if(isset($_POST["submit1"])){
             </div>
                 <?php
         }else{
+            $_SESSION["username"] = $_POST["username"];
 ?>
 <script type="text/javascript">
 
