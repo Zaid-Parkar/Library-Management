@@ -57,8 +57,6 @@ include "connection.php";
 
                             </table>
 
-
-
                             <?php
 
                             if (isset($_POST["submit1"])) {
@@ -77,7 +75,7 @@ include "connection.php";
                             ?>
                             <table class="table table-bordered">
                                 <tr>
-                                    <td><input type="text" class="form-control"placeholder="Enrollment number" name="enrollment" value="<?php echo $enrollments; ?>" ></td>
+                                    <td><input type="text" class="form-control" placeholder="Enrollment number" name="enrollment" value="<?php echo $enrollments; ?>"></td>
                                 </tr>
                                 <tr>
                                     <td><input type="text" class="form-control" placeholder="Student name" name="s_name" value="<?php echo $firstname . ' ' . $lastname; ?>"></td>
@@ -108,13 +106,13 @@ include "connection.php";
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="text" class="form-control" placeholder="Issue date" name="book_issue_date" value="<?php echo date("d-m-Y"); ?>" >
+                                        <input type="text" class="form-control" placeholder="Issue date" name="book_issue_date" value="<?php echo date("d-m-Y"); ?>">
                                     </td>
                                 </tr>
-                              
+
                                 <tr>
                                     <td>
-                                        <input type="text" class="form-control" placeholder="User name" name="username" value="<?php echo $susername;?>" >
+                                        <input type="text" class="form-control" placeholder="User name" name="username" value="<?php echo $susername; ?>">
                                     </td>
                                 </tr>
                                 <tr>
@@ -132,12 +130,12 @@ include "connection.php";
                         <?php
                         if (isset($_POST["submit2"])) {
                             $link = mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', ' ','$_POST[username]' )");
-?>
-<script type="text/javascript">
-    alert("Books issued successfully");
-    window.location.href=window.location.href;
-</script>
-<?php
+                        ?>
+                        <script type="text/javascript">
+                        alert("Books issued successfully");
+                        window.location.href = window.location.href;
+                        </script>
+                        <?php
 
                         }
 
