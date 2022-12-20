@@ -89,6 +89,9 @@ include "header.php";
                             echo "<th>";
                             echo "books_issue_date";
                             echo "</th>";
+                            echo "<th>";
+                            echo "return book";
+                            echo "</th>";
                             echo "</tr>";
                             while ($row = mysqli_fetch_array($res)) {
                                 echo "<tr>";
@@ -99,6 +102,7 @@ include "header.php";
                                 echo "<td>"; echo $row["student_email"]; echo "</td>";
                                 echo "<td>"; echo $row["books_name"]; echo "</td>";
                                 echo "<td>"; echo $row["books_issue_date"]; echo "</td>";
+                                echo "<td>"; ?> <a href="return.php?id=<?php echo $row["id"]; ?>">Return Books</a> <?php echo "</td>";
                                 echo "</tr>";
                             }
                             echo "</table>";
