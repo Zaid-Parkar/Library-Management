@@ -111,12 +111,7 @@ include "connection.php";
                                         <input type="text" class="form-control" placeholder="Issue date" name="book_issue_date" value="<?php echo date("d-m-Y"); ?>" >
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" class="form-control" placeholder="Return date" name="books_return_date" value="<?php echo date('d-m-Y ', strtotime("+7 day")); ?>" >
-
-                                    </td>
-                                </tr>
+                              
                                 <tr>
                                     <td>
                                         <input type="text" class="form-control" placeholder="User name" name="username" value="<?php echo $susername;?>" >
@@ -136,7 +131,7 @@ include "connection.php";
 
                         <?php
                         if (isset($_POST["submit2"])) {
-                            $link = mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', '$_POST[books_return_date]','$_POST[username]' )");
+                            $link = mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', ' ','$_POST[username]' )");
 ?>
 <script type="text/javascript">
     alert("Books issued successfully");
