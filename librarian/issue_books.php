@@ -129,7 +129,12 @@ include "connection.php";
 
                         <?php
                         if (isset($_POST["submit2"])) {
-                            $link = mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', ' ','$_POST[username]' )");
+                            mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', ' ','$_POST[username]' )");
+
+                           mysqli_query($link, "UPDATE add_books set available_qty=available_qty-1 where books_name='$_POST[booksname]'");
+
+
+
                         ?>
                         <script type="text/javascript">
                         alert("Books issued successfully");
