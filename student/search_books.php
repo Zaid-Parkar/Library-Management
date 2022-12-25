@@ -33,31 +33,71 @@ include "connection.php";
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        <form action="" name="form1" method="POST">
+                            <table class="table ">
+                                <tr>
+                                    <td>
+                                        <input type="text" name="t1" placeholder="Enter books name" class="form-control " required>
+                                    </td>
+                                    <td> <input type="submit" name="submit1" value="search box" class="form-control btn btn-primary">
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </form>
 
                         <?php
-                        $i = 0;
-                        $res = mysqli_query($link, "SELECT * FROM `add_books`");
-                        echo "<table class='table table-bordered' >";
-                        echo "<tr>";
-                        while ($row = mysqli_fetch_array($res)) 
-                        {
-                            $i = $i + 1;
-                            echo "<td>";
-                        ?> <img src="../librarian/<?php echo $row["books_image"]; ?> height=" 100" width="100"><?php
-                            echo "<br>";
-                            echo "<b>" . $row["books_name"] . "</b>";
-                            echo "<br>";
-                            echo "<b> Available :" . $row["available_qty"] . "</b>";
-                            echo "</td>";
-
-                            if($i==2)
-                            {
-                                echo "</tr>";
-                                echo "<tr>";
-                                $i = 0;
+                        if (isset($_POST["submit1"])) {
+                            $i = 0;
+                            $res = mysqli_query($link, "SELECT * FROM `add_books` where `books_name` like ('%$_POST[t1]%')");
+                            echo "<table class='table table-bordered' >";
+                            echo "<tr>";
+                            while ($row = mysqli_fetch_array($res)) {
+                                $i = $i + 1;
+                                echo "<td>";
+                            ?> <img src="../librarian/<?php echo $row["books_image"]; ?> height=" 100" width="100"><?php
+                                echo "<br>";
+                                echo "<b>" . $row["books_name"] . "</b>";
+                                echo "<br>";
+                                echo "<b> Available :" . $row["available_qty"] . "</b>";
+                                echo "</td>";
+    
+                                if ($i == 2) {
+                                    echo "</tr>";
+                                    echo "<tr>";
+                                    $i = 0;
+                                }
                             }
+                            echo "</tr>";
+                            echo "</table>";
+
+                        } else {
+                            $i = 0;
+                            $res = mysqli_query($link, "SELECT * FROM `add_books`");
+                            echo "<table class='table table-bordered' >";
+                            echo "<tr>";
+                            while ($row = mysqli_fetch_array($res)) {
+                                $i = $i + 1;
+                                echo "<td>";
+                        ?> <img src="../librarian/<?php echo $row["books_image"]; ?> height=" 100" width="100"><?php
+                                echo "<br>";
+                                echo "<b>" . $row["books_name"] . "</b>";
+                                echo "<br>";
+                                echo "<b> Available :" . $row["available_qty"] . "</b>";
+                                echo "</td>";
+
+                                if ($i == 2) {
+                                    echo "</tr>";
+                                    echo "<tr>";
+                                    $i = 0;
+                                }
+                            }
+                            echo "</tr>";
+                            echo "</table>";
                         }
-                        echo "</tr>";
+
+
+
                               ?>
                     </div>
                 </div>
