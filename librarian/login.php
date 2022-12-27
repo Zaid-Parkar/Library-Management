@@ -30,7 +30,6 @@ include "connection.php";
 
     <body class="login">
 
-
         <div class="login_wrapper">
 
             <section class="login_content">
@@ -59,46 +58,35 @@ include "connection.php";
                         <div class="clearfix"></div>
                         <br />
 
-
                     </div>
                 </form>
             </section>
 
-
         </div>
         <?php
-if(isset($_POST["submit1"]))
-{
-    $count = 0;
-    $res = mysqli_query($link, "select * from librarian_registration where username='$_POST[username]' && password='$_POST[password]'");
-    $count = mysqli_num_rows($res);
-  
+        if (isset($_POST["submit1"])) {
+            $count = 0;
+            $res = mysqli_query($link, "select * from librarian_registration where username='$_POST[username]' && password='$_POST[password]'");
+            $count = mysqli_num_rows($res);
 
-    if($count==0){
+            if ($count == 0) {
         ?>
         <div class="alert alert-danger col-lg-12 col-md-6 col-sm-12 col-lg-push-0 text-center m-auto ">
             <strong style="color:white">Invalid</strong> Username Or Password.
         </div>
         <?php
-    }
-    
-    else{
-        $_SESSION["librarian"]=$_POST["username"];
-?>
+            } else {
+                $_SESSION["librarian"] = $_POST["username"];
+        ?>
         <script type="text/javascript">
         window.location = "student_info.php";
         </script>
         <?php
-    }
+            }
 
+        }
 
-}
-
-
-
-?>
-
-
+        ?>
 
     </body>
 
