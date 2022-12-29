@@ -72,7 +72,7 @@ include "connection.php";
                                     $sem = $row1["sem"];
                                     $enrollments = $row1["enrollment"];
                                 }
-                            ?>
+                                ?>
                             <table class="table table-bordered">
                                 <tr>
                                     <td><input type="text" class="form-control" placeholder="Enrollment number" name="enrollment" value="<?php echo $enrollments; ?>"></td>
@@ -94,13 +94,13 @@ include "connection.php";
                                         <select name="booksname" class="form-control  selectpicker">
 
                                             <?php
-                                $res = mysqli_query($link, "select books_name from add_books");
-                                while ($row = mysqli_fetch_array($res)) {
-                                    echo "<option>";
-                                    echo $row["books_name"];
-                                    echo "</option>";
-                                }
-                                            ?>
+                                                $res = mysqli_query($link, "select books_name from add_books");
+                                                while ($row = mysqli_fetch_array($res)) {
+                                                    echo "<option>";
+                                                    echo $row["books_name"];
+                                                    echo "</option>";
+                                                }
+                                                ?>
                                         </select>
                                     </td>
                                 </tr>
@@ -129,17 +129,31 @@ include "connection.php";
 
                         <?php
                         if (isset($_POST["submit2"])) {
-                            mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', ' ','$_POST[username]' )");
 
-                            mysqli_query($link, "UPDATE add_books set available_qty=available_qty-1 where books_name='$_POST[booksname]'");
+                            $res = mysqli_query($link, "select * from add_books where books_name ='$_POST[booksname]'");
 
-                        ?>
+                            while ($row = mysqli_fetch_array($res)) {
+                                $qty = $row["available_qty"];
+                            }
+                            if ($qty == 0) {
+                                ?>
+                        <div class="alert alert-danger col-lg-12 col-md-6 col-sm-12 col-lg-push-0 text-center m-auto ">
+                            <strong style="color:white">This book is not available in stock</strong>
+                        </div>
+                        <?php
+                            } else {
+
+                                mysqli_query($link, "INSERT INTO `issue_books` (`student_enrollment`, `student_name`, `student_sem`, `student_contact`, `student_email`, `books_name`, `books_issue_date`, `books_return_date`, `student_username`) VALUES ( '$_POST[enrollment]', '$_POST[s_name]', '$_POST[s_sem]', '$_POST[s_contact]', '$_POST[s_email]', '$_POST[booksname]', '$_POST[book_issue_date]', ' ','$_POST[username]' )");
+
+                                mysqli_query($link, "UPDATE add_books set available_qty=available_qty-1 where books_name='$_POST[booksname]'");
+
+                                ?>
                         <script type="text/javascript">
-                            alert("Books issued successfully");
-                            window.location.href = window.location.href;
+                        alert("Books issued successfully");
+                        window.location.href = window.location.href;
                         </script>
                         <?php
-
+                            }
                         }
 
                         ?>
