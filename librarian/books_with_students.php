@@ -50,7 +50,7 @@ include "connection.php";
                                 echo "<b> Available :" . $row["available_qty"] . "</b>";
                                 echo "<br>";
                                 ?>
-                                <a href="all_stu_of_this_books.php?books_name=<?php echo $row["books_name"]?>">Student record of yhis book</a>
+                                <a href="all_stu_of_this_books.php?books_name=<?php echo $row["books_name"]?>">Student record of this book</a>
 
 <?php
                                 echo "</td>";
