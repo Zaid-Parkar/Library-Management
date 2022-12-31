@@ -29,16 +29,13 @@ include "header.php";
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Display & Search books</h2>
+                        <h2>Display  books</h2>
 
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
-                        <form name="form1" action="" method="POST">
-                            <input type="text" name="t1" class="form-control" placeholder="Enter book name">
-                            <input type="submit" name="submit1" value="search books" class="btn btn-primary " style="margin-top: 5px;">
-                        </form>
+                       
 
                         <?php
 
